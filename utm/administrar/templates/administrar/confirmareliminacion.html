@@ -1,0 +1,22 @@
+{% extends "administrar/encabezado.html" %}
+{% block titulo %}Eliminar{% endblock %}
+{% block encabezado %}
+{% endblock %}
+{% block contenido %}
+<div class="container">
+    <div class="py-5">
+<form method="POST">
+    {% csrf_token %}
+    <!-- Alerta -->
+    <div class="callout callout-danger">
+    <h5>Eliminando Registro</h5>
+    <p>¿Estas seguro de que deseas <strong>Eliminar</strong> el 
+    el Material para la practica {{object.practica}} que seleccionaste?.</p>
+    </div>
+    <!-- /Alerta -->
+    <button type="submit" class="btn btn-danger">Si</button>
+    <a href="{%url 'Materiales'%}" class="btn btn-primary">Cancelar</a>
+    </form>
+    </div>
+</div>
+{% endblock %}
