@@ -1,0 +1,38 @@
+{% extends "administrar/encabezado.html" %}
+{% block titulo%} COMENTARIOS DE CONTACTO {%endblock%}
+
+{% block encabezado%}
+<!--Encabezdo -->
+<div class="page-header">
+<div class="page-title">
+<h3>COMENTARIOS
+<small>Lista de Comentarios</small></h3>
+</div>
+</div>
+<!-- /Encabezado-->
+{%endblock%}
+
+{%block contenido%}
+<!-- Tabla de Alumnos -->
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Mensaje</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+CONSULTANDO COMENTARIOS DE CONTACTO
+ <tbody>
+    {% for comentario in comentarios %}
+    <tr>
+    <td class="text-semibold">{{comentario.usuario}}</td>
+    <td class="muted">{{comentario.mensaje}}</td>
+
+    </tr>
+    {% endfor %} 
+    </tbody>
+    </table>
+    <!-- /Tabla de alumnos -->
+    {%endblock%}

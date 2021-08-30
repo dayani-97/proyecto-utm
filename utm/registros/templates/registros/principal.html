@@ -1,0 +1,43 @@
+{% extends "administrar/encabezado.html" %}
+{% block titulo %}Principal Registros{% endblock %}
+
+
+{% block encabezado%}
+<!--Encabezdo -->
+<div class="page-header">
+<div class="page-title">
+<h3>COMENTARIOS
+<small>Lista de Comentarios</small></h3>
+</div>
+</div>
+<!-- /Encabezado-->
+{%endblock%}
+
+{% block contenido %}
+<table class="table table-bordered tablestriped">
+    <thead>
+    <tr>
+    <th>Foto</th>
+    <th>Matricula</th>
+    <th>Nombre</th>
+    <th>Carrera</th>
+    <th>Turno</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr>
+        <td class="text-center">
+        <img src="{{alumno.imagen.url}}" alt="" class="img-media" height="150px" width="150px">
+        </td>
+        <td class="text-semibold">{{alumno.matricula}}</td>
+        <td class="muted">{{alumno.nombre}}</td>
+        <td class="muted">{{alumno.carrera}}</td>
+        <td class="muted">{{alumno.turno}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        <!-- /Tabla de alumnos -->
+
+{% endblock %}

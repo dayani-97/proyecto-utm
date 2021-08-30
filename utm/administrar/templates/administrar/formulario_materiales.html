@@ -1,0 +1,129 @@
+{% extends "administrar/encabezado.html" %}
+{% block titulo %}Agregar Materiales{% endblock %}
+{% block contenido %}
+
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnFeohNASdbY9yIsK5wnzwzVi3-WsDYo1WB2kX9Ce5pwGZkrRAMo_9pud3NCyz2mFau_o&usqp=CAU"
+      alt="" width="72" height="72">
+    <h2>Registra Un Material</h2>
+    <p class="lead">Completa todos los Campos del formulario para realizar tu solicitud a la Universidad Tecnologica de
+      Morelia.</p>
+  </div>
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Ejemplos</span>
+        <span class="badge badge-secondary badge-pill">3</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Nombre del material</h6>
+            <small class="text-muted">Cables UTP</small>
+          </div>
+          <span class="text-muted">$12 metro</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Nombre del material 2</h6>
+            <small class="text-muted">Modem</small>
+          </div>
+          <span class="text-muted">$2700</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Nombre material 3</h6>
+            <small class="text-muted">Vinos y licores</small>
+          </div>
+          <span class="text-muted">$1008</span>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Datos Personales</h4>
+
+      <form class="needs-validation" action="{% url 'RegistrarMaterial'%}" method="POST" role="form">
+        {%csrf_token%}
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">Nombre Completo:</label>
+            <input name="nombre" type="text" class="form-control" id="firstName"
+              placeholder="Introduce tu nombre completo" value="" required>
+
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Matricula:</label>
+            <input name="matricula" type="text" class="form-control" id="lastName" placeholder="Introduce tu matricula"
+              value="" required>
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Correo Electronico:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input name="correo" type="email" class="form-control" id="username"
+              placeholder="Introduce tu correo institucional" required>
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country">Carrera</label>
+          <select name="carrera" class="custom-select d-block w-100" id="carrera" required>
+            <option value="">Selecciona tu carrera</option>
+            <option>Tecnologias de la Información</option>
+            <option>Mecatronica</option>
+            <option>Biotecnología</option>
+            <option>Energias Renovables</option>
+            <option>Mantenimiento Industrial</option>
+            <option>Gastronomia</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="address">Nombre de la Practica:</label>
+          <input name="practica" type="text" class="form-control" id="address"
+            placeholder="Escribe el nombre de la Practica" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Materiales:</label>
+          <textarea name="materiales" type="text" min="0" placeholder="Introduce los materiales requeridos" rows="5"
+            class="form-control" required></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Cantidad:</label>
+            <input  min="0" max="1000" name="cantidad" type="number" class="form-control" id="" placeholder="Cantidad" required>
+
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">Precio:</label>
+            <input min="0"  name="precio" type="number" class="form-control" id="" placeholder="$ Precio" required>
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar</button>
+
+        <hr class="mb-4">
+        <hr class="mb-4">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/vendor/holder.min.js"></script>

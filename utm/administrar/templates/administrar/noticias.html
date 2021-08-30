@@ -1,0 +1,40 @@
+{% extends "administrar/encabezado.html" %}
+
+{% block titulo %}Noticias{% endblock %}
+{% block contenido %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 order-md-2 mb-4">
+            <h2>Registra una Noticia</h2>
+            <form class="form-horizontal" action="{% url 'SubirNoticia'%}" method="POST" role="form"
+                enctype="multipart/form-data">
+                {%csrf_token%}
+                <div class="row">
+                    <div class="col-md-10 mb-3">
+                        <label for="firstName">Titulo:</label>
+                        <input name="titulo" type="text" class="form-control" id="firstName"
+                            placeholder="Introduce el titulo" value="" required>
+                    </div>
+
+                    <div class="col-md-10 mb-3">
+                        <label for="firstName">Detalles:</label>
+                        <textarea  required name="descripcion" cols="50" rows="10" class="form-control" placeholder="Introduce la descripción de esta noticia"> </textarea>
+                    </div>
+
+                    <div class="col-md-10 mb-3">
+                        <label for="firstName">Imagen:</label>
+                        <input required type="file" accept="image/*" name="imagen" />
+                    </div>
+
+                    <div class="col-md-10 mb-3">
+                        <input type="submit" value="enviar" class="btn btn-primary">
+                    </div>
+
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
